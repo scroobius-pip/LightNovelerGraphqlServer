@@ -1,0 +1,41 @@
+{
+  "name": "express-graphql-rethinkdb-lightnoveler",
+  "version": "1.0.0",
+  "description": "express-graphql-rethinkdb-lightnoveler",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "babel": "babel src -d build && node ./build/index.js",
+    "run": "node ./build/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/scroobius-pip/express-graphql-rethinkdb-lightnoveler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/scroobius-pip/express-graphql-rethinkdb-lightnoveler/issues"
+  },
+  "homepage": "https://gitlab.com/scroobius-pip/express-graphql-rethinkdb-lightnoveler#README",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "eslint": "^4.1.1",
+    "express": "^4.15.3",
+    "graphql": "^0.10.3",
+    "graphql-server-express": "^1.0.0",
+    "graphql-tools": "^1.1.0",
+    "nothinkdb": "^0.5.35",
+    "rethinkdb": "^2.3.3",
+    "rethinkdbdash": "^2.3.29"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-preset-es2015": "^6.24.1",
+    "casual": "^1.5.14",
+    "jest": "^20.0.4",
+    "jest-cli": "^20.0.4"
+  }
+}
