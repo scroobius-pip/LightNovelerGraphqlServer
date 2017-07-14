@@ -25,13 +25,13 @@ const Chapter = () => ({
     chapterurl: casual.url,
     content: casual.sentences(10),
     novelurl: casual.url,
-    volume: casual.integer(1, 5).toString()
+    volume: casual.integer(1, 5)
 })
 
 
 const arrNovel = []
 const arrChapter = []
-for (let x = 0; x < 20; ++x) {
+for (let x = 0; x < 5; ++x) {
     arrNovel.push(Novel())
     arrChapter.push(Chapter())
 }
@@ -56,7 +56,7 @@ const mock = {
         }
     },
 
-    // ChapterCrawler: arrChapter
+    
 }
 
 export default mock

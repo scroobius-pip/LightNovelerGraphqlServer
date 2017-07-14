@@ -12,7 +12,7 @@ const executableSchema = makeExecutableSchema({
     resolvers: mock
 })
 
-app.post(
+app.use(
     '/graphql',
     bodyParser.json(),
     graphqlExpress(() => ({
