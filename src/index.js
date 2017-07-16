@@ -9,7 +9,7 @@ import schema from './schema'
 const app = express()
 const executableSchema = makeExecutableSchema({
     typeDefs: schema,
-    resolvers: mock
+    resolvers
 })
 
 app.use(
