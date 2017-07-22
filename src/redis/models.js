@@ -24,7 +24,7 @@ export default class redisGraqphl {
   async getId (ids = []) {
     ids = ids.join('-')
     try {
-      return JSON.parse(await promiseTimeout(5000, this.client.getAsync(ids)))
+      return JSON.parse(await promiseTimeout(2500, this.client.getAsync(ids)))
     } catch (error) {
       console.log(error)
       return null
