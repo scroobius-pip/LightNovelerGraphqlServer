@@ -61,8 +61,6 @@ type ChapterCrawler implements Chapter {
     content: String
 }
 
-
-
 input order{
     field: String!
     arr: String!
@@ -76,7 +74,7 @@ input page_limit {
 `
 const Query = `
 type Query {
-     novels(filter:[String!]!,orderBy:order!,pagination:page_limit!): [Novels]!
+     novels(filter:[String!],orderBy:order!,pagination:page_limit!): [Novels]!
      novel(uuid: String!): Novel
      chapter(novel_uuid:String!,chapter_id:String!,type:String): Chapter
      chapters(novel_uuid:String!,pagination:page_limit!,type:String): [Chapters]

@@ -38,13 +38,13 @@ var Chapter = function Chapter() {
         chapterurl: _casual2.default.url,
         content: _casual2.default.sentences(10),
         novelurl: _casual2.default.url,
-        volume: _casual2.default.integer(1, 5).toString()
+        volume: _casual2.default.integer(1, 5)
     };
 };
 
 var arrNovel = [];
 var arrChapter = [];
-for (var x = 0; x < 20; ++x) {
+for (var x = 0; x < 5; ++x) {
     arrNovel.push(Novel());
     arrChapter.push(Chapter());
 }
@@ -69,7 +69,6 @@ var mock = {
         }
     }
 
-    // ChapterCrawler: arrChapter
 };
 
 exports.default = mock;
