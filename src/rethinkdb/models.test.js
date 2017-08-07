@@ -10,8 +10,17 @@
 //       throw err
 //     })
 
- test('Functions Should Return Promise', async() => {
-   let doc = r.getNovels(['uuid'], { arr: 'dsc', field: 'modified' }, { page: 1, limit: 4 })
-   console.log(doc)
-   expect(doc instanceof Promise).toBe(true)
+ test('two pages should not repeat', async() => {
+   let doc1 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 1, limit: 4 })
+   let doc2 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 2, limit: 4 })
+   // expect(doc1).toBeInstanceOf(Array)
+   expect(true).toBe(true)
+ })
+ test('Should have a correct length', async() => {
+   let doc1 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 1, limit: 4 })
+   expect(doc1.length).toBeLessThanOrEqual(4)
+ })
+ test('should return an array', async() => {
+   let doc1 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 1, limit: 4 })
+   expect(doc1).toBeInstanceOf(Array)
  })

@@ -8,9 +8,9 @@ import resolvers from './resolvers'
 // import mock from './mock'
 import schema from './schema'
 
-process.on('uncaughtException', err => {
-  console.log(err.stack)
-})
+// process.on('uncaughtException', err => {
+//   console.log(err.stack)
+// })
 
 const app = express()
 const executableSchema = makeExecutableSchema({

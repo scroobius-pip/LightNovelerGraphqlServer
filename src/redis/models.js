@@ -1,11 +1,12 @@
 import redis from 'redis'
 import bluebird from 'bluebird'
-import { redisConfig } from './config'
+import config from '../config'
 import {promiseTimeout} from '../utils/timeout-promise'
 bluebird.promisifyAll(redis.RedisClient.prototype)
 bluebird.promisifyAll(redis.Multi.prototype)
+const redisConfig = config.redis
 
-export default class redisGraqphl {
+export default class RedisGraqphl {
   constructor () {
     this.client = redis.createClient(redisConfig)
     this.client.on('error', err => {

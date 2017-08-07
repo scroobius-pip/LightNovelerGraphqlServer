@@ -1,4 +1,4 @@
-import connector from './connector'
+import connector from './models'
 const r = new connector()
 
 test('Functions Should Return Promise', async() => {

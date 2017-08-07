@@ -1,7 +1,7 @@
 
 import rethinkdbdash from 'rethinkdbdash'
-import { rethinkdb_config } from './config'
-const { host, port, db, table } = rethinkdb_config
+import config from '../config'
+const { host, port, db, table } = config.rethinkdb
 let r = rethinkdbdash(
   {
     servers: [
@@ -9,7 +9,7 @@ let r = rethinkdbdash(
     ]
   }
 )
-export default class rethinkGraphql {
+export default class RethinkGraphql {
   getChapters (novelUuid, pagination = { page: 1, limit: 5 }, type = 'chapters') {
     let { page, limit } = pagination
     return r.db(db).table(table).getAll(novelUuid, { index: 'uuid' })(0)(type).pluck('chapter', 'id', 'volume', 'modified').orderBy(r.desc('modified')).slice(limit * (page - 1), limit * page).run()

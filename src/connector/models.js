@@ -1,9 +1,9 @@
-import redisGrapqhl from './redis/models'
-import rethinkdbGrapqhl from './rethinkdb/models'
-import {config} from './config'
-const redis = new redisGrapqhl()
-const rethinkdb = new rethinkdbGrapqhl()
-const {connector: {expire: {chapters: chaptersEx, novel: novelEx, novels: novelsEx}}} = config
+import RedisGrapqhl from '../redis/models'
+import RethinkdbGrapqhl from '../rethinkdb/models'
+import config from '../config'
+const redis = new RedisGrapqhl()
+const rethinkdb = new RethinkdbGrapqhl()
+const {connector: {expire: {chapters: chaptersEx, novel: novelEx, novels: novelsEx}}} = config.connector
 
 export default class connectors {
   async getChapters (novelUuid, pagination = { page: 1, limit: 5 }, type = 'chapters') {
@@ -55,10 +55,8 @@ export default class connectors {
       if (fromRedis === null) {
         let fromRethink = rethinkdb.getNovel(novelUuid, fields)
         redis.setId(arr, await fromRethink, novelEx)
-        // console.log(await fromRethink, 'From Rethink')
         return fromRethink
       }
-     // console.log(await fromRedis, 'From Redis')
       return fromRedis
     } catch (err) {
       throw err

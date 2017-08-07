@@ -1,8 +1,5 @@
-import rethinkdbModel from './rethinkdb/models'
-// import { UserError } from 'graphql-errors'
-// const r = new rethinkdbModel()
-import connectors from './connector'
-const r = new connectors()
+import Connectors from './connector/models'
+const r = new Connectors()
 
 const resolver = {
   Query: {
