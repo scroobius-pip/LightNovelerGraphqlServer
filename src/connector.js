@@ -55,10 +55,10 @@ export default class connectors {
       if (fromRedis === null) {
         let fromRethink = rethinkdb.getNovel(novelUuid, fields)
         redis.setId(arr, await fromRethink, novelEx)
-        console.log(await fromRethink, 'From Rethink')
+        // console.log(await fromRethink, 'From Rethink')
         return fromRethink
       }
-      console.log(await fromRedis, 'From Redis')
+     // console.log(await fromRedis, 'From Redis')
       return fromRedis
     } catch (err) {
       throw err

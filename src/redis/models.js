@@ -22,9 +22,9 @@ export default class redisGraqphl {
     })
   }
   async getId (ids = []) {
-    ids = ids.join('-')
+    const _ids = ids.join('-')
     try {
-      return JSON.parse(await promiseTimeout(2500, this.client.getAsync(ids)))
+      return JSON.parse(await promiseTimeout(2500, this.client.getAsync(_ids)))
     } catch (error) {
       console.log(error)
       return null
@@ -32,13 +32,13 @@ export default class redisGraqphl {
   }
 
   async setId (ids = [], value, expire) {
-    value = JSON.stringify(value)
-    ids = ids.join('-')
+    const _value = JSON.stringify(value)
+    const _ids = ids.join('-')
     try {
       if (expire === undefined) {
-        await this.client.setAsync(ids, value)
+        await this.client.setAsync(_ids, _value)
       } else {
-        await this.client.setAsync(ids, value, 'EX', expire)
+        await this.client.setAsync(_ids, _value, 'EX', expire)
       }
     } catch (error) {
       throw error
