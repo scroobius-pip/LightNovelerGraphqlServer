@@ -71,6 +71,8 @@ input page_limit {
     limit: Int!
 }
 
+
+
 `
 const Query = `
 type Query {
@@ -83,4 +85,15 @@ type Query {
 
 `
 
-export default [schema, Query]
+const Mutation = `
+type Mutation {
+    createNovel(Idtoken:String!): Boolean!
+    createChapter(Idtoken:String!,novel_uuid:String!): Boolean!
+    editNovel(Idtoken:String!,novel_uuid:String!): Boolean!
+    editChapter(Idtoken:String!,novel_uuid:String!,chapter_id:String!): Boolean!
+    deleteChapter(Idtoken:String!,novel_uuid:String!,chapter_id:String!): Boolean!
+    deleteNovel(Idtoken:String!,novel_uuid:String!): Boolean!
+}
+`
+
+export default [schema, Query, Mutation]

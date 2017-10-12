@@ -23,8 +23,9 @@ export default class RethinkGraphql {
     let { field, arr } = order
     let { page, limit } = pagination
     // I have to handle cases of negative numbers
-    page = Math.abs(page)
+    page = Math.abs(page)   // This doesn't seem right i shouldn't handlie negative numbers in server, Should validate at client side, throw an error if passed negative numbers to server
     limit = Math.abs(limit)
+
     field = field === 'modified' || field === 'name' ? field : 'modified'
     arr = arr === 'asc' || arr === 'dsc' ? arr : 'asc'
     const ascOrDsc = arr === 'asc' ? r.asc : r.desc

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "babel": "babel src -d build && node ./build/server.js --trace-sync-io",
-    "run": "node ./build/index.js"
+    "build": "babel src -d build ",
+    "start": "node ./build/server.js --trace-sync-io"
   },
   "repository": {
     "type": "git",
@@ -25,12 +25,16 @@
     "dotenv": "^4.0.0",
     "eslint": "^4.1.1",
     "express": "^4.15.3",
+    "firebase-admin": "^5.2.0",
     "graphql": "^0.10.3",
     "graphql-errors": "^2.1.0",
     "graphql-server-express": "^1.0.0",
     "graphql-tools": "^1.1.0",
+    "jsonwebtoken": "^7.4.2",
     "nothinkdb": "^0.5.35",
     "optics-agent": "^1.1.6",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1",
     "redis": "^2.7.1",
     "rethinkdb": "^2.3.3",
     "rethinkdbdash": "^2.3.29"

@@ -5,12 +5,13 @@ import { makeExecutableSchema } from 'graphql-tools'
 import OpticsAgent from 'optics-agent'
 import { maskErrors } from 'graphql-errors'
 import resolvers from './resolvers'
-// import mock from './mock'
 import schema from './schema'
+import config from './config'
+const {port} = config.server
 
-// process.on('uncaughtException', err => {
-//   console.log(err.stack)
-// })
+process.on('uncaughtException', err => {
+  process.exit(1)
+})
 
 const app = express()
 const executableSchema = makeExecutableSchema({
@@ -34,5 +35,5 @@ app.use('/graphiql', graphiqlExpress({
 
 }))
 
-app.listen(8080)
-console.log('listening at 8080')
+app.listen(port, '0.0.0.0')
+console.log(`listening at ${port}`)

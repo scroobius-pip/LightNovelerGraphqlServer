@@ -12,20 +12,13 @@ var _asyncToGenerator2 = require('babel-runtime/helpers/asyncToGenerator');
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _models = require('./rethinkdb/models');
+var _models = require('./connector/models');
 
 var _models2 = _interopRequireDefault(_models);
 
-var _connector = require('./connector');
-
-var _connector2 = _interopRequireDefault(_connector);
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var r = new _connector2.default();
-// import { UserError } from 'graphql-errors'
-// const r = new rethinkdbModel()
-
+var r = new _models2.default();
 
 var resolver = {
   Query: {

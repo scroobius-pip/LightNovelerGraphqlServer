@@ -1,14 +1,14 @@
 import redis from 'redis'
 import bluebird from 'bluebird'
 import config from '../config'
-import {promiseTimeout} from '../utils/timeout-promise'
+import { promiseTimeout } from '../utils/timeout-promise'
 bluebird.promisifyAll(redis.RedisClient.prototype)
 bluebird.promisifyAll(redis.Multi.prototype)
-const redisConfig = config.redis
+const { host, port, timeout } = config.redis
 
 export default class RedisGraqphl {
   constructor () {
-    this.client = redis.createClient(redisConfig)
+    this.client = redis.createClient({ host, port })
     this.client.on('error', err => {
       console.log(err)
     })
@@ -25,7 +25,7 @@ export default class RedisGraqphl {
   async getId (ids = []) {
     const _ids = ids.join('-')
     try {
-      return JSON.parse(await promiseTimeout(2500, this.client.getAsync(_ids)))
+      return JSON.parse(await promiseTimeout(timeout, this.client.getAsync(_ids))) // Rejects if redis doesn't respond within timeout
     } catch (error) {
       console.log(error)
       return null
