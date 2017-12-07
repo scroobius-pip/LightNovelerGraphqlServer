@@ -1,16 +1,16 @@
 const config = {}
 config.connector = { connector: {
   expire: {// expiry for redis fields in milliseconds
-    chapters: process.env.CONNECTOR_CHAPTERS,
-    novel: process.env.CONNECTOR_NOVEL,
-    novels: process.env.CONNECTOR_NOVELS
+    chapters: process.env.CONNECTOR_CHAPTERS || 1800,
+    novel: process.env.CONNECTOR_NOVEL || 3600,
+    novels: process.env.CONNECTOR_NOVELS || 300
   }
 }}
 
 config.redis = {
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
-  timeout: process.env.REDIS_TIMEOUT
+  host: process.env.REDIS_HOST || '127.0.0.1',
+  port: process.env.REDIS_PORT || 6379,
+  timeout: process.env.REDIS_TIMEOUT || 2500
 }
 
 config.rethinkdb = {
