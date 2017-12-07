@@ -36,5 +36,6 @@ app.use('/graphiql', graphiqlExpress({
 
 }))
 
-app.listen(port, '0.0.0.0')
-console.log(`listening at ${port}`)
+app.listen(port, () => {
+  console.log(`listening at ${port}`)
+})

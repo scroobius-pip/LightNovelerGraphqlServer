@@ -14,7 +14,7 @@
    let doc1 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 1, limit: 4 })
    let doc2 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 2, limit: 4 })
    // expect(doc1).toBeInstanceOf(Array)
-   expect(true).toBe(true)
+   expect(true).toBe(true) // will use underscore for this
  })
  test('Should have a correct length', async() => {
    let doc1 = await r.getNovels(['uuid', 'name', 'modified'], { arr: 'dsc', field: 'modified' }, { page: 1, limit: 4 })
